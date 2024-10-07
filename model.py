@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 data = pd.read_csv('data/data_daily.csv')
 data['# Date'] = pd.to_datetime(data['# Date'], format='%Y-%m-%d')
 data.set_index('# Date', inplace=True)
-monthly_data = data.resample('M').sum() # Aggregate daily data to monthly
+monthly_data = data.resample('M').sum()  # Aggregate daily data to monthly
 receipt_counts = monthly_data['Receipt_Count']
 
 # Manually scale data to range [0, 1]
@@ -59,15 +59,6 @@ predictions = predictions * (max_val - min_val) + min_val
 dates_2022 = pd.date_range(start='2022-01-01', periods=12, freq='M')
 predictions_df = pd.DataFrame({'Date': dates_2022, 'Predicted_Receipt_Count': predictions})
 
-print("\nPredicted receipt counts for each month of 2022:")
-print(predictions_df)
+model.save('lstm_model.keras')
 
-# Plotting
-plt.figure(figsize=(10, 6))
-plt.plot(monthly_data.index, monthly_data['Receipt_Count'], label='Actual')
-plt.plot(predictions_df['Date'], predictions_df['Predicted_Receipt_Count'], label='Predicted')
-plt.xlabel('Date')
-plt.ylabel('Receipt Count (Hundred Millions)')
-plt.title('Predicted vs Actual Monthly Receipt Counts')
-plt.legend()
-plt.show()
+print(predictions_df)

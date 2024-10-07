@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Receipt Count Predictions</title>
+</head>
+<body style="text-align: center;">
+    <h1>Predicted vs Actual Monthly Receipt Counts</h1>
+    <div style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+        <img src="{{ url_for('plot_png') }}" alt="Plot" style="width: 50%;">
+        <div style="display: inline-block; text-align: left;">
+            {% for table in tables %}
+                {{ table|safe }}
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
