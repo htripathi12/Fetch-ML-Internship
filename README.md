@@ -7,14 +7,11 @@ This Flask application predicts monthly receipt counts for 2022 using a pre-trai
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
   - [Clone the Repository](#clone-the-repository)
+  - [Running Docker](#running-docker)
   - [Build the Docker Image](#build-the-docker-image)
   - [Run the Docker Container](#run-the-docker-container)
 - [Accessing the Application](#accessing-the-application)
-- [Project Structure](#project-structure)
-- [Technical Details](#technical-details)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Thank You](#thank-you)
 
 ## Prerequisites
 
@@ -32,8 +29,10 @@ cd Fetch-ML-Internship
 ```
 
 ### Running Docker
+
 You need to have Docker Desktop downloaded and running on your machine. You can download it from Docker's official website [here](https://www.docker.com/products/docker-desktop).
-```
+
+### Build the Docker Image
 
 In your terminal, navigate to the project directory and run:
 
@@ -43,7 +42,7 @@ docker build -t receipt-prediction-app .
 
 This command builds a Docker image named `receipt-prediction-app` using the `Dockerfile` in the current directory.
 
-## Run the Docker Container
+### Run the Docker Container
 
 To run the Docker container and map the container's port to your host machine, use:
 
@@ -66,4 +65,6 @@ http://localhost:3000
 
 As mentioned previously, if you change the port in your run command, you must adjust it here as well. You should see the application's homepage displaying the predicted vs. actual monthly receipt counts, along with the associated dataframe.
 
-## Thank you for reviewing my submission!
+## Thank You
+
+Thank you for reviewing my submission!
